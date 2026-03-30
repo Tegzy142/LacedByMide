@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Laced by Mide — Premium Wig & Lace Specialist, Lagos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pink:#E91E8C;--pink-2:#FF4DB2;--pink-3:#FF85C8;
+  --pink-pale:#FFF0F8;--pink-mid:#FFD6EE;--pink-soft:#FEF6FB;
+  --dark:#1C0A14;--dark-2:#2A1020;--charcoal:#3D1E30;
+  --white:#FFFFFF;--light:#FDF8FB;--page-2:#FBF3F8;
+  --muted:#9A7088;--line:#F0DDE8;--line-2:#E8C8DC;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:'Outfit',sans-serif;background:var(--white);color:var(--dark);overflow-x:hidden}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-thumb{background:var(--pink)}
+
+/* PROGRESS */
+#prog{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--pink),var(--pink-3));z-index:999;width:0%;border-radius:0 2px 2px 0}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px 5%;
+  background:rgba(255,255,255,0);
+  transition:all .4s;
+}
+nav.scrolled{background:rgba(255,255,255,.97);backdrop-filter:blur(20px);box-shadow:0 2px 24px rgba(233,30,140,.08);padding:13px 5%}
+.nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none;min-width:0}
+.brand-logo{display:block;flex-shrink:0}
+.brand-logo img{display:block;width:100%;height:auto;object-fit:contain}
+.brand-logo-nav{width:88px;filter:drop-shadow(0 4px 10px rgba(0,0,0,.2))}
+.brand-logo-footer{width:128px}
+.nav-brand-name{font-family:'Playfair Display',serif;font-size:1.02rem;font-weight:700;color:var(--white);transition:color .4s;letter-spacing:.4px}
+nav.scrolled .nav-brand-name{color:var(--dark)}
+.nav-links{display:flex;gap:28px;list-style:none;align-items:center}
+.nav-links a{font-size:.68rem;letter-spacing:2px;text-transform:uppercase;text-decoration:none;color:rgba(255,255,255,.85);font-weight:500;transition:color .2s}
+nav.scrolled .nav-links a{color:var(--charcoal)}
+.nav-links a:hover{color:var(--pink) !important}
+.nav-cta{background:var(--pink) !important;color:white !important;padding:10px 22px;border-radius:50px;font-weight:600 !important;box-shadow:0 4px 16px rgba(233,30,140,.4)}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(233,30,140,.55) !important}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none}
+.hamburger span{display:block;width:22px;height:2px;background:var(--white);border-radius:2px;transition:all .3s}
+nav.scrolled .hamburger span{background:var(--dark)}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0;width:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;inset:0;background:var(--white);z-index:300;flex-direction:column;align-items:center;justify-content:center;gap:32px}
+.mobile-menu.open{display:flex;animation:mIn .3s forwards}
+@keyframes mIn{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
+.mobile-menu a{font-size:.92rem;letter-spacing:3px;text-transform:uppercase;text-decoration:none;color:var(--dark);font-weight:400}
+.mobile-close{position:absolute;top:22px;right:5%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;background:none;border:none;color:var(--muted)}
+.mobile-close svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round}
+
+/* HERO */
+.hero{min-height:100vh;position:relative;overflow:hidden;display:flex;align-items:center;background:var(--dark)}
+.hero-bg{position:absolute;inset:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center top;opacity:.38}
+.hero-bg::before{content:'';position:absolute;top:0;left:0;right:0;height:180px;background:linear-gradient(to bottom,rgba(28,10,20,.7),transparent);z-index:1}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(120deg,rgba(28,10,20,.96) 0%,rgba(28,10,20,.7) 55%,rgba(233,30,140,.1) 100%)}
+/* Wave at bottom of hero */
+.hero-wave{position:absolute;bottom:-2px;left:0;right:0;z-index:3}
+.hero-wave svg{display:block;width:100%}
+.hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;min-height:100vh;align-items:center;padding:0 5%;gap:60px}
+.hero-content{padding:130px 0 80px}
+.hero-tag{display:inline-flex;align-items:center;gap:10px;background:rgba(233,30,140,.15);border:1px solid rgba(233,30,140,.25);color:var(--pink-3);padding:7px 16px;border-radius:50px;font-size:.62rem;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:24px;font-weight:500}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,5.5vw,4.8rem);font-weight:700;color:white;line-height:1.05;margin-bottom:18px}
+.hero h1 em{font-style:italic;color:var(--pink-3);display:block}
+.hero p{font-size:.92rem;color:rgba(255,255,255,.6);line-height:1.9;max-width:420px;margin-bottom:36px;font-weight:300}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:48px}
+.btn-fill{background:linear-gradient(135deg,var(--pink),var(--pink-2));color:white;padding:14px 32px;border-radius:50px;font-size:.68rem;letter-spacing:2px;text-transform:uppercase;text-decoration:none;font-weight:600;box-shadow:0 8px 24px rgba(233,30,140,.4);transition:all .3s;display:inline-block}
+.btn-fill:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(233,30,140,.55)}
+.btn-outline-w{border:1px solid rgba(255,255,255,.3);color:white;padding:14px 32px;border-radius:50px;font-size:.68rem;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:all .3s;display:inline-block}
+.btn-outline-w:hover{border-color:var(--pink-3);color:var(--pink-3)}
+.hero-stats{display:flex;gap:32px;flex-wrap:wrap;padding-top:32px;border-top:1px solid rgba(255,255,255,.08)}
+.h-stat-n{font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:700;color:var(--pink-3)}
+.h-stat-l{font-size:.58rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:3px}
+/* Right side cards */
+.hero-cards{display:flex;flex-direction:column;gap:16px;padding:130px 0 80px}
+.h-card{background:rgba(255,255,255,.08);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:20px 22px;color:white;transition:transform .3s,background .3s}
+.h-card:hover{transform:translateX(-6px);background:rgba(255,255,255,.12)}
+.h-card-top{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.h-card-icon{width:36px;height:36px;background:rgba(233,30,140,.25);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.h-card-icon svg{width:18px;height:18px;stroke:white;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.h-card-title{font-weight:600;font-size:.85rem}
+.h-card-desc{font-size:.72rem;color:rgba(255,255,255,.5);font-weight:300;line-height:1.5}
+
+/* WHY STRIP */
+.why-strip{background:var(--white);padding:72px 5%}
+.why-strip-inner{display:grid;grid-template-columns:1fr 3fr;gap:60px;align-items:center}
+.why-strip-left{}
+.why-strip-left .s-tag{color:var(--pink);font-size:.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:600;margin-bottom:12px;display:block}
+.why-strip-left h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.4rem);font-weight:700;line-height:1.2;color:var(--dark)}
+.why-strip-left h2 em{color:var(--pink);font-style:italic}
+.why-strip-left p{font-size:.82rem;color:var(--muted);margin-top:12px;line-height:1.8;font-weight:300}
+.why-cards-row{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.why-card{background:var(--light);border-radius:16px;padding:28px 20px;text-align:center;border:1px solid var(--line);transition:transform .3s,box-shadow .3s,border-color .3s}
+.why-card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(233,30,140,.1);border-color:var(--pink-mid)}
+.why-card-icon{width:52px;height:52px;margin:0 auto 14px;border-radius:14px;background:var(--pink-pale);display:flex;align-items:center;justify-content:center}
+.why-card-icon svg{width:24px;height:24px;stroke:var(--pink);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.why-card-title{font-weight:600;font-size:.85rem;color:var(--dark);margin-bottom:6px}
+.why-card-desc{font-size:.74rem;color:var(--muted);line-height:1.65;font-weight:300}
+
+/* SECTION */
+section{padding:100px 5%}
+.s-tag{font-size:.62rem;letter-spacing:3px;text-transform:uppercase;color:var(--pink);font-weight:600;margin-bottom:12px;display:inline-flex;align-items:center;gap:8px}
+.s-tag::before,.s-tag::after{content:'';width:6px;height:6px;border:1.5px solid currentColor;transform:rotate(45deg);display:inline-block;border-radius:1px}
+.s-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;line-height:1.1;color:var(--dark);margin-bottom:14px}
+.s-title em{font-style:italic;color:var(--pink)}
+.s-sub{font-size:.88rem;color:var(--muted);font-weight:300;line-height:1.85;max-width:500px}
+.s-line{width:44px;height:3px;background:linear-gradient(90deg,var(--pink),var(--pink-3));border-radius:2px;margin:16px 0}
+
+/* ABOUT */
+.about-section{background:var(--page-2)}
+.about-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about-imgs{position:relative;height:520px}
+.a-main{position:absolute;right:0;top:0;width:74%;height:86%;border-radius:20px;overflow:hidden;box-shadow:0 24px 64px rgba(233,30,140,.15)}
+.a-main img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.a-sub{position:absolute;left:0;bottom:0;width:50%;height:52%;border-radius:16px;overflow:hidden;border:4px solid white;box-shadow:0 16px 48px rgba(0,0,0,.12)}
+.a-sub img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.a-pill{position:absolute;right:10%;bottom:10%;background:white;padding:14px 18px;border-radius:14px;box-shadow:0 8px 32px rgba(233,30,140,.15);display:flex;align-items:center;gap:10px;z-index:2;white-space:nowrap;animation:floatUp 3s ease-in-out infinite}
+@keyframes floatUp{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.a-pill-icon{width:36px;height:36px;background:linear-gradient(135deg,var(--pink),var(--pink-2));border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.a-pill-icon svg{width:18px;height:18px;stroke:white;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.a-pill-num{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--dark)}
+.a-pill-text{font-size:.65rem;color:var(--muted)}
+.about-text p{font-size:.88rem;color:var(--charcoal);line-height:1.95;font-weight:300;margin-bottom:16px}
+.about-feats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px}
+.af{display:flex;align-items:center;gap:9px;font-size:.76rem;color:var(--charcoal)}
+.af-dot{width:6px;height:6px;background:var(--pink);border-radius:50%;flex-shrink:0}
+.btn-about{display:inline-block;margin-top:28px;background:linear-gradient(135deg,var(--pink),var(--pink-2));color:white;padding:13px 30px;border-radius:50px;font-size:.68rem;letter-spacing:2px;text-transform:uppercase;font-weight:600;text-decoration:none;box-shadow:0 6px 20px rgba(233,30,140,.3);transition:all .3s}
+.btn-about:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(233,30,140,.45)}
+.about-stats{display:flex;gap:32px;margin-top:32px;padding-top:24px;border-top:1px solid var(--line)}
+.ast-num{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--pink)}
+.ast-label{font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-top:3px}
+
+/* SERVICES */
+.services-section{background:var(--white)}
+.svc-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:52px;flex-wrap:wrap;gap:20px}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.svc-card{border-radius:20px;overflow:hidden;border:1px solid var(--line);transition:all .35s;background:white}
+.svc-card:hover{transform:translateY(-8px);box-shadow:0 24px 60px rgba(233,30,140,.12);border-color:var(--pink-mid)}
+.svc-img{height:200px;overflow:hidden;position:relative;background:var(--pink-pale)}
+.svc-img img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .6s}
+.svc-card:hover .svc-img img{transform:scale(1.07)}
+.svc-img-tag{position:absolute;bottom:12px;left:12px;background:white;color:var(--pink);font-size:.58rem;letter-spacing:2px;text-transform:uppercase;padding:5px 12px;border-radius:50px;font-weight:600}
+.svc-body{padding:22px}
+.svc-name{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;color:var(--dark);margin-bottom:8px}
+.svc-desc{font-size:.76rem;color:var(--muted);line-height:1.7;font-weight:300;margin-bottom:14px}
+.svc-bottom{display:flex;align-items:center;justify-content:space-between}
+.svc-price{font-size:.78rem;color:var(--pink);font-weight:600}
+.svc-btn{background:var(--pink);color:white;padding:8px 18px;border-radius:50px;font-size:.62rem;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;font-weight:600;transition:all .3s;box-shadow:0 4px 12px rgba(233,30,140,.3)}
+.svc-btn:hover{background:var(--pink-2);transform:translateY(-1px)}
+
+/* GALLERY */
+.gallery-section{background:var(--page-2)}
+.gallery-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px;flex-wrap:wrap;gap:16px}
+.gallery-mosaic{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:260px 200px;gap:10px}
+.g-item{border-radius:14px;overflow:hidden;position:relative}
+.g-item img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .6s}
+.g-item:hover img{transform:scale(1.06)}
+.g-item:nth-child(1){grid-column:span 2;grid-row:span 2}
+.g-item:nth-child(5){grid-column:span 2}
+.g-overlay{position:absolute;inset:0;background:rgba(233,30,140,0);transition:background .4s;border-radius:14px;display:flex;align-items:center;justify-content:center}
+.g-item:hover .g-overlay{background:rgba(233,30,140,.2)}
+.g-label{background:white;color:var(--pink);font-size:.58rem;letter-spacing:2px;text-transform:uppercase;padding:6px 14px;border-radius:50px;font-weight:600;opacity:0;transform:scale(.9);transition:all .3s}
+.g-item:hover .g-label{opacity:1;transform:scale(1)}
+
+/* FAQ */
+.faq-section{background:var(--white)}
+.faq-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.faq-list{display:flex;flex-direction:column;gap:12px;margin-top:8px}
+.faq-item{background:var(--light);border-radius:14px;border:1px solid var(--line);overflow:hidden;transition:border-color .3s}
+.faq-item.open{border-color:var(--pink-mid)}
+.faq-q{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;cursor:pointer;font-size:.85rem;font-weight:500;color:var(--dark)}
+.faq-icon{width:24px;height:24px;background:var(--pink-pale);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--pink);font-size:.9rem;transition:transform .3s;flex-shrink:0}
+.faq-item.open .faq-icon{transform:rotate(45deg);background:var(--pink);color:white}
+.faq-a{font-size:.8rem;color:var(--muted);line-height:1.75;padding:0 22px 18px;font-weight:300;display:none}
+.faq-item.open .faq-a{display:block}
+.faq-img{border-radius:20px;overflow:hidden;height:100%;min-height:400px;position:relative}
+.faq-img img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.faq-img-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(233,30,140,.4),transparent)}
+.faq-img-badge{position:absolute;bottom:24px;left:24px;right:24px;background:white;border-radius:14px;padding:18px 20px}
+.faq-img-badge h4{font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:var(--dark);margin-bottom:4px}
+.faq-img-badge p{font-size:.72rem;color:var(--muted);font-weight:300}
+
+/* BOOKING */
+.booking-section{background:var(--page-2)}
+.booking-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.booking-form-wrap{background:white;padding:44px;border-radius:24px;border:1px solid var(--line);box-shadow:0 8px 32px rgba(233,30,140,.06)}
+.form-title{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--dark);margin-bottom:28px}
+.f-group{margin-bottom:16px}
+.f-label{display:block;font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:6px;font-weight:500}
+.f-input,.f-select,.f-area{width:100%;border:1.5px solid var(--line);background:var(--light);padding:12px 15px;border-radius:10px;font-family:'Outfit',sans-serif;font-size:.84rem;color:var(--dark);outline:none;transition:border .2s;-webkit-appearance:none;appearance:none}
+.f-input:focus,.f-select:focus,.f-area:focus{border-color:var(--pink);background:white}
+.f-area{resize:vertical;min-height:84px}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.f-submit{width:100%;background:linear-gradient(135deg,var(--pink),var(--pink-2));color:white;border:none;padding:15px 18px;border-radius:50px;font-family:'Outfit',sans-serif;font-size:.68rem;letter-spacing:2px;text-transform:uppercase;cursor:pointer;font-weight:600;box-shadow:0 6px 20px rgba(233,30,140,.3);transition:all .3s;margin-top:6px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;gap:10px}
+.f-submit::before{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);transition:left .5s}
+.f-submit:hover::before{left:150%}
+.f-submit:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(233,30,140,.45)}
+.f-submit span,.f-submit svg{position:relative;z-index:1}
+.f-submit svg{flex-shrink:0}
+.booking-info h3{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--dark);line-height:1.2;margin-bottom:16px}
+.booking-info h3 em{color:var(--pink);font-style:italic}
+.booking-info p{font-size:.87rem;color:var(--muted);line-height:1.9;font-weight:300;margin-bottom:28px}
+.i-cards{display:flex;flex-direction:column;gap:12px}
+.i-card{display:flex;gap:14px;align-items:flex-start;padding:16px;background:white;border-radius:14px;border:1px solid var(--line);transition:transform .25s,border-color .25s}
+.i-card:hover{transform:translateX(5px);border-color:var(--pink-mid)}
+.i-icon{width:36px;height:36px;background:var(--pink-pale);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.i-icon svg{width:15px;height:15px;stroke:var(--pink);fill:none;stroke-width:2}
+.i-label{font-size:.58rem;letter-spacing:2px;text-transform:uppercase;color:var(--pink);margin-bottom:3px;font-weight:600}
+.i-val{font-size:.8rem;color:var(--charcoal);font-weight:400;line-height:1.5}
+.deposit-note{margin-top:16px;background:var(--pink-pale);padding:14px 18px;border-radius:12px;border-left:3px solid var(--pink);font-size:.76rem;color:var(--charcoal);line-height:1.65}
+.deposit-note strong{color:var(--pink)}
+
+/* CONTACT */
+.contact-section{background:var(--dark)}
+.contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-top:52px;align-items:start}
+.c-items{display:flex;flex-direction:column;gap:12px}
+.c-item{display:flex;gap:14px;align-items:flex-start;padding:16px 18px;background:rgba(255,255,255,.05);border-radius:14px;border:1px solid rgba(255,255,255,.08);transition:border-color .3s}
+.c-item:hover{border-color:rgba(233,30,140,.3)}
+.c-ico{width:36px;height:36px;background:rgba(233,30,140,.15);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.c-ico svg{width:15px;height:15px;stroke:var(--pink-3);fill:none;stroke-width:2}
+.c-lbl{font-size:.56rem;letter-spacing:2px;text-transform:uppercase;color:var(--pink-3);margin-bottom:3px;font-weight:600}
+.c-val{font-size:.82rem;color:rgba(255,255,255,.6);font-weight:300;line-height:1.5}
+.social-row{display:flex;gap:8px;margin-top:6px;flex-wrap:wrap}
+.s-lnk{border:1px solid rgba(255,255,255,.12);padding:8px 16px;border-radius:50px;font-size:.58rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.45);text-decoration:none;transition:all .3s}
+.s-lnk:hover{border-color:var(--pink);color:var(--pink)}
+.contact-cta{background:rgba(233,30,140,.08);padding:36px;border-radius:20px;border:1px solid rgba(233,30,140,.18)}
+.contact-cta h3{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:white;margin-bottom:8px;line-height:1.3}
+.contact-cta h3 em{color:var(--pink-3);font-style:italic}
+.contact-cta p{font-size:.82rem;color:rgba(255,255,255,.4);margin-bottom:24px;font-weight:300}
+.wa-cta{display:flex;align-items:center;justify-content:center;gap:10px;background:#25D366;color:white;padding:15px;border-radius:50px;font-size:.66rem;letter-spacing:2px;text-transform:uppercase;text-decoration:none;font-weight:600;transition:all .3s;margin-bottom:10px;box-shadow:0 6px 20px rgba(37,211,102,.3)}
+.wa-cta:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(37,211,102,.45)}
+.ig-cta{display:flex;align-items:center;justify-content:center;gap:8px;border:1px solid rgba(233,30,140,.3);color:var(--pink-3);padding:15px;border-radius:50px;font-size:.66rem;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:all .3s}
+.ig-cta:hover{background:rgba(233,30,140,.1);border-color:var(--pink)}
+
+/* FOOTER */
+footer{background:rgba(0,0,0,.3);border-top:1px solid rgba(255,255,255,.05);padding:28px 5%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+.f-logo{display:flex;align-items:center;justify-content:center}
+.f-copy{font-size:.6rem;color:rgba(255,255,255,.22);letter-spacing:1px}
+.f-handle{font-size:.6rem;color:rgba(255,255,255,.3);letter-spacing:1px}
+
+/* WA FLOAT */
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:500;background:#25D366;width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:transform .2s;animation:waPulse 2.5s ease-in-out infinite}
+@keyframes waPulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.4)}50%{box-shadow:0 4px 32px rgba(37,211,102,.65)}}
+.wa-float:hover{transform:scale(1.1);animation:none}
+
+/* ANIMATIONS */
+.ha-1{opacity:0;transform:translateY(16px);animation:hf .7s .15s forwards}
+.ha-2{opacity:0;transform:translateY(22px);animation:hf .8s .35s forwards}
+.ha-3{opacity:0;transform:translateY(16px);animation:hf .7s .55s forwards}
+.ha-4{opacity:0;transform:translateY(12px);animation:hf .7s .75s forwards}
+.ha-5{opacity:0;animation:hf .7s .95s forwards}
+.hc-1{opacity:0;transform:translateX(20px);animation:hf .7s .4s forwards}
+.hc-2{opacity:0;transform:translateX(20px);animation:hf .7s .6s forwards}
+.hc-3{opacity:0;transform:translateX(20px);animation:hf .7s .8s forwards}
+.hc-4{opacity:0;transform:translateX(20px);animation:hf .7s 1s forwards}
+.hc-5{opacity:0;transform:translateX(20px);animation:hf .7s 1.2s forwards}
+@keyframes hf{to{opacity:1;transform:translate(0)}}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-l{opacity:0;transform:translateX(-22px);transition:opacity .7s,transform .7s}
+.reveal-l.visible{opacity:1;transform:translateX(0)}
+.reveal-r{opacity:0;transform:translateX(22px);transition:opacity .7s,transform .7s}
+.reveal-r.visible{opacity:1;transform:translateX(0)}
+
+/* RESPONSIVE */
+@media(max-width:1000px){
+  .hero-inner{grid-template-columns:1fr}
+  .hero-cards{display:none}
+  .why-strip-inner{grid-template-columns:1fr}
+  .why-cards-row{grid-template-columns:1fr 1fr}
+}
+@media(max-width:900px){
+  .nav-links{display:none}.hamburger{display:flex}
+  .nav-brand-name{display:none}
+  .brand-logo-nav{width:74px}
+  .about-inner,.booking-inner,.contact-inner,.faq-inner{grid-template-columns:1fr;gap:48px}
+  .svc-grid{grid-template-columns:1fr 1fr}
+  .gallery-mosaic{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+  .g-item:nth-child(1),.g-item:nth-child(5){grid-column:span 1}
+  .about-imgs{height:300px}
+  .faq-img{min-height:280px}
+}
+@media(max-width:600px){
+  .hero-content{padding:110px 0 60px}
+  .hero h1{font-size:2.6rem}
+  .hero-stats{gap:20px}
+  .f-row{grid-template-columns:1fr}
+  section{padding:70px 5%}
+  .svc-grid{grid-template-columns:1fr}
+  .about-imgs{height:240px}
+  .booking-form-wrap{padding:28px 20px}
+  footer{flex-direction:column;text-align:center}
+  .brand-logo-footer{width:104px}
+  .why-cards-row{grid-template-columns:1fr 1fr;gap:12px}
+}
+</style>
+</head>
+<body>
+<div id="prog"></div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#home" class="nav-brand">
+    <span class="brand-logo brand-logo-nav" aria-label="Laced by Mide logo">
+      <img src="images/Logo.png" alt="Laced by Mide logo">
+    </span>
+    <span class="nav-brand-name">Laced by Mide</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#booking" class="nav-cta">Book Now</a></li>
+  </ul>
+  <button class="hamburger" id="ham" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="toggleMenu()" aria-label="Close menu">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6 18 18"/><path d="M18 6 6 18"/></svg>
+  </button>
+  <a href="#about" onclick="toggleMenu()">About</a>
+  <a href="#services" onclick="toggleMenu()">Services</a>
+  <a href="#gallery" onclick="toggleMenu()">Gallery</a>
+  <a href="#faq" onclick="toggleMenu()">FAQ</a>
+  <a href="#booking" onclick="toggleMenu()">Book Appointment</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <img src="https://i.pinimg.com/736x/62/1e/f9/621ef9714535893301048c2c3d95f001.jpg" alt="Laced by Mide">
+  </div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-tag ha-1">Because You Deserve to Shine</div>
+      <h1 class="ha-2">Premium Lace<br><em>Transformations</em></h1>
+      <p class="ha-3">Professional wig construction, lace installation, and hair styling that empowers you with confidence through a flawless, natural finish. Based in Lagos, Nigeria.</p>
+      <div class="hero-btns ha-4">
+        <a href="#booking" class="btn-fill">Book Appointment</a>
+        <a href="#services" class="btn-outline-w">Our Services</a>
+      </div>
+      <div class="hero-stats ha-5">
+        <div><div class="h-stat-n">By Appt</div><div class="h-stat-l">Only</div></div>
+        <div><div class="h-stat-n">Lagos</div><div class="h-stat-l">Based</div></div>
+        <div><div class="h-stat-n">100%</div><div class="h-stat-l">Natural Finish</div></div>
+      </div>
+    </div>
+    <div class="hero-cards">
+      <div class="h-card hc-1">
+        <div class="h-card-top">
+          <div class="h-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <circle cx="9" cy="15" r="4.5"/>
+              <path d="m12.5 11.5 4-4 3 3-4 4"/>
+              <path d="m14.5 5.5 4 4"/>
+            </svg>
+          </div>
+          <div class="h-card-title">Bridal Specialist</div>
+        </div>
+        <div class="h-card-desc">Premium hair styling for weddings and formal celebrations that photograph beautifully</div>
+      </div>
+      <div class="h-card hc-2">
+        <div class="h-card-top">
+          <div class="h-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <circle cx="6" cy="8" r="2.5"/>
+              <circle cx="6" cy="16" r="2.5"/>
+              <path d="M8.2 9.5 19 4"/>
+              <path d="M8.2 14.5 19 20"/>
+            </svg>
+          </div>
+          <div class="h-card-title">Lace Customization</div>
+        </div>
+        <div class="h-card-desc">Expert bleaching, plucking & tinting for an undetectable, natural-looking hairline</div>
+      </div>
+      <div class="h-card hc-3">
+        <div class="h-card-top">
+          <div class="h-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M20 7h-6V1"/>
+              <path d="M4 17h6v6"/>
+              <path d="M20 7a8 8 0 0 0-14-3"/>
+              <path d="M4 17a8 8 0 0 0 14 3"/>
+            </svg>
+          </div>
+          <div class="h-card-title">Wig Revamping</div>
+        </div>
+        <div class="h-card-desc">Deep conditioning and restyling to restore old or worn wigs to their former glory</div>
+      </div>
+      <div class="h-card hc-4">
+        <div class="h-card-top">
+          <div class="h-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M16 4c1.7 0 3 1.3 3 3 0 2.5-2.5 4.5-5 7l-4 4"/>
+              <path d="m10 18 2 2"/>
+              <path d="M7 21 3 17"/>
+              <path d="m14 9 2 2"/>
+            </svg>
+          </div>
+          <div class="h-card-title">Wig Construction</div>
+        </div>
+        <div class="h-card-desc">Machine and hand-sewn wig making from bundles and lace systems built to last</div>
+      </div>
+      <div class="h-card hc-5">
+        <div class="h-card-top">
+          <div class="h-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <rect x="3" y="5" width="18" height="16" rx="2"/>
+              <path d="M16 3v4"/>
+              <path d="M8 3v4"/>
+              <path d="M3 10h18"/>
+            </svg>
+          </div>
+          <div class="h-card-title">Appointment Only</div>
+        </div>
+        <div class="h-card-desc">Strictly by appointment — your slot is secured with a deposit via Instagram DM</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-wave">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" fill="white"><path d="M0,40 C360,80 1080,0 1440,40 L1440,60 L0,60 Z"/></svg>
+  </div>
+</section>
+
+<!-- WHY STRIP -->
+<div class="why-strip">
+  <div class="why-strip-inner">
+    <div class="reveal-l">
+      <span class="s-tag">Why Choose Us</span>
+      <h2>Why <em>Laced<br>by Mide?</em></h2>
+      <p>We don't just do hair — we craft confidence. Every installation is a commitment to quality that speaks for itself.</p>
+    </div>
+    <div class="why-cards-row">
+      <div class="why-card reveal">
+        <div class="why-card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="M4 18h16"/>
+            <path d="M6 18 4 8l5 4 3-6 3 6 5-4-2 10"/>
+          </svg>
+        </div>
+        <div class="why-card-title">Premium Quality</div>
+        <div class="why-card-desc">Only the finest techniques and products for exceptional, lasting results</div>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="8"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="12" cy="12" r="1.5" fill="var(--pink)" stroke="none"/>
+          </svg>
+        </div>
+        <div class="why-card-title">Attention to Detail</div>
+        <div class="why-card-desc">Every knot bleached, every hairline plucked with precision and care</div>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <circle cx="12" cy="13" r="7"/>
+            <path d="M12 13V9.5"/>
+            <path d="M12 13l2.5 1.5"/>
+            <path d="M9 3h6"/>
+            <path d="m7 6-1.5 1.5"/>
+            <path d="M17 6l1.5 1.5"/>
+          </svg>
+        </div>
+        <div class="why-card-title">On-Time Always</div>
+        <div class="why-card-desc">We respect your time — appointments are honored and timelines met</div>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="m12 4 1.7 4.3L18 10l-4.3 1.7L12 16l-1.7-4.3L6 10l4.3-1.7Z"/>
+            <path d="m18.5 3 .6 1.4L20.5 5l-1.4.6-.6 1.4-.6-1.4L16.5 5l1.4-.6Z"/>
+          </svg>
+        </div>
+        <div class="why-card-title">Natural Finish</div>
+        <div class="why-card-desc">Flawless, undetectable installs that look like your own hair</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about" class="about-section">
+  <div class="about-inner">
+    <div class="about-imgs reveal-l">
+      <div class="a-main">
+        <img src="https://i.pinimg.com/736x/be/c9/61/bec96148f1d39e0f0b5755d21cbf4fbc.jpg" alt="Laced by Mide work" style="object-position:center 20%">
+      </div>
+      <div class="a-sub">
+        <img src="https://i.pinimg.com/736x/9f/8c/d3/9f8cd3dcdc946d3fbf4155dd648692a4.jpg" alt="Installation" style="object-position:center 20%">
+      </div>
+      <div class="a-pill">
+        <div class="a-pill-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="M3 9 7 4h10l4 5-9 11Z"/>
+            <path d="M3 9h18"/>
+            <path d="m7 4 5 16 5-16"/>
+          </svg>
+        </div>
+        <div>
+          <div class="a-pill-num">100%</div>
+          <div class="a-pill-text">Natural Finish Guaranteed</div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal-r">
+      <div class="s-tag">About Mide</div>
+      <h2 class="s-title">The Crown Care<br><em>Specialist</em></h2>
+      <div class="s-line"></div>
+      <p>Laced by Mide was founded by Sanni Ayomide with one mission: to provide high-quality, professional hair styling and wig customization that empowers every client with confidence through a flawless, natural finish.</p>
+      <p>Based in Lagos, Nigeria, Mide has built a reputation for meticulous lace work — from custom wig construction and expert installations to bridal styling that makes every client feel like royalty on their biggest day.</p>
+      <div class="about-feats">
+        <div class="af"><div class="af-dot"></div>Wig Construction Expert</div>
+        <div class="af"><div class="af-dot"></div>Lace Installation Specialist</div>
+        <div class="af"><div class="af-dot"></div>Bridal Hair Styling</div>
+        <div class="af"><div class="af-dot"></div>Lace Customization</div>
+        <div class="af"><div class="af-dot"></div>Wig Revamping</div>
+        <div class="af"><div class="af-dot"></div>Appointment Only</div>
+      </div>
+      <div class="about-stats">
+        <div><div class="ast-num">Lagos</div><div class="ast-label">Based</div></div>
+        <div><div class="ast-num">By Appt</div><div class="ast-label">Booking Model</div></div>
+        <div><div class="ast-num">100%</div><div class="ast-label">Quality Guarantee</div></div>
+      </div>
+      <a href="#booking" class="btn-about">Book With Mide</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="services-section">
+  <div class="svc-head">
+    <div class="reveal">
+      <div class="s-tag">Our Services</div>
+      <h2 class="s-title">Premium <em>Services</em></h2>
+    </div>
+    <div class="reveal">
+      <p class="s-sub">Every service is delivered with expert precision and a commitment to your crown.</p>
+    </div>
+  </div>
+  <div class="svc-grid">
+    <div class="svc-card reveal">
+      <div class="svc-img">
+        <img src="https://i.pinimg.com/736x/be/c9/61/bec96148f1d39e0f0b5755d21cbf4fbc.jpg" alt="Wig Construction" loading="lazy" style="object-position:center 20%">
+        <div class="svc-img-tag">Most Popular</div>
+      </div>
+      <div class="svc-body">
+        <div class="svc-name">Wig Construction</div>
+        <p class="svc-desc">Professional machine or hand-sewn wig making from your bundles and lace system. Built to last and fit your head perfectly.</p>
+        <div class="svc-bottom">
+          <div class="svc-price">From ₦25,000</div>
+          <a href="#booking" class="svc-btn">Book Now</a>
+        </div>
+      </div>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-img">
+        <img src="https://i.pinimg.com/736x/9f/8c/d3/9f8cd3dcdc946d3fbf4155dd648692a4.jpg" alt="Installation" loading="lazy" style="object-position:center 20%">
+      </div>
+      <div class="svc-body">
+        <div class="svc-name">Lace Installation</div>
+        <p class="svc-desc">Expert application of lace frontals and closures for a seamless, undetectable finish. Glue and glueless options available.</p>
+        <div class="svc-bottom">
+          <div class="svc-price">From ₦15,000</div>
+          <a href="#booking" class="svc-btn">Book Now</a>
+        </div>
+      </div>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-img">
+        <img src="https://i.pinimg.com/736x/4e/24/99/4e2499d8818538bc993777502a72f17b.jpg" alt="Lace Customization" loading="lazy">
+      </div>
+      <div class="svc-body">
+        <div class="svc-name">Lace Customization</div>
+        <p class="svc-desc">Bleaching knots and plucking to create a natural-looking hairline. Makes your wig look completely undetectable.</p>
+        <div class="svc-bottom">
+          <div class="svc-price">From ₦10,000</div>
+          <a href="#booking" class="svc-btn">Book Now</a>
+        </div>
+      </div>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-img">
+        <img src="https://i.pinimg.com/736x/c8/7e/88/c87e88443f9e9c7a69234fbf141f8447.jpg" alt="Wig Revamping" loading="lazy" style="object-position:center 50%">
+      </div>
+      <div class="svc-body">
+        <div class="svc-name">Wig Revamping</div>
+        <p class="svc-desc">Deep conditioning, detangling, and restyling to restore old or worn wigs back to life. Drop-off service available.</p>
+        <div class="svc-bottom">
+          <div class="svc-price">From ₦8,000</div>
+          <a href="#booking" class="svc-btn">Book Now</a>
+        </div>
+      </div>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-img">
+        <img src="https://i.pinimg.com/736x/57/84/89/578489066d82e09069c85596e29cbfed.jpg" alt="Bridal" loading="lazy" style="object-position:center 20%">
+        <div class="svc-img-tag">Premium</div>
+      </div>
+      <div class="svc-body">
+        <div class="svc-name">Bridal & Special Events</div>
+        <p class="svc-desc">Premium hair styling for weddings and formal celebrations. Every bride deserves a flawless crown for her big day.</p>
+        <div class="svc-bottom">
+          <div class="svc-price">From ₦50,000</div>
+          <a href="#booking" class="svc-btn">Book Now</a>
+        </div>
+      </div>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-img">
+        <img src="https://i.pinimg.com/736x/f6/ab/29/f6ab29000b419896c8eb1e413d43588d.jpg" alt="Full Package" loading="lazy" style="object-position:center 20%">
+      </div>
+      <div class="svc-body">
+        <div class="svc-name">Full Lace Package</div>
+        <p class="svc-desc">Construction + customization + installation in one complete package. The ultimate lace experience from start to finish.</p>
+        <div class="svc-bottom">
+          <div class="svc-price">Enquire for pricing</div>
+          <a href="#booking" class="svc-btn">Enquire</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="gallery-section">
+  <div class="gallery-head">
+    <div class="reveal">
+      <div class="s-tag">The Laced Look</div>
+      <h2 class="s-title">Our <em>Portfolio</em></h2>
+      <div class="s-line"></div>
+    </div>
+    <div class="reveal">
+      <p class="s-sub">Transformations that speak for themselves — bridal, editorial, and everyday lace work.</p>
+    </div>
+  </div>
+  <div class="gallery-mosaic">
+    <div class="g-item reveal">
+      <img src="https://i.pinimg.com/736x/57/84/89/578489066d82e09069c85596e29cbfed.jpg" alt="Bridal" loading="lazy" style="object-position:center 20%">
+      <div class="g-overlay"><span class="g-label">Bridal Install</span></div>
+    </div>
+    <div class="g-item reveal">
+      <img src="https://i.pinimg.com/736x/62/1e/f9/621ef9714535893301048c2c3d95f001.jpg" alt="Frontal" loading="lazy" style="object-position:top">
+      <div class="g-overlay"><span class="g-label">Frontal Install</span></div>
+    </div>
+    <div class="g-item reveal">
+      <img src="https://i.pinimg.com/736x/be/c9/61/bec96148f1d39e0f0b5755d21cbf4fbc.jpg" alt="Lace" loading="lazy" style="object-position:center 20%">
+      <div class="g-overlay"><span class="g-label">Lace Custom</span></div>
+    </div>
+    <div class="g-item reveal">
+      <img src="https://i.pinimg.com/736x/f6/ab/29/f6ab29000b419896c8eb1e413d43588d.jpg" alt="Install" loading="lazy" style="object-position:center 20%">
+      <div class="g-overlay"><span class="g-label">Clean Install</span></div>
+    </div>
+    <div class="g-item reveal">
+      <img src="https://i.pinimg.com/736x/9f/8c/d3/9f8cd3dcdc946d3fbf4155dd648692a4.jpg" alt="Wig" loading="lazy" style="object-position:center 20%">
+      <div class="g-overlay"><span class="g-label">Wig Construction</span></div>
+    </div>
+    <div class="g-item reveal">
+      <img src="https://i.pinimg.com/736x/12/29/1b/12291b8bc30f657a54b280cf7ee5a0c5.jpg" alt="Revamp" loading="lazy">
+      <div class="g-overlay"><span class="g-label">Wig Revamp</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="faq-section">
+  <div class="faq-inner">
+    <div>
+      <div class="s-tag reveal">FAQ</div>
+      <h2 class="s-title reveal">Common <em>Questions</em></h2>
+      <div class="s-line reveal"></div>
+      <div class="faq-list">
+        <div class="faq-item reveal" onclick="toggleFaq(this)">
+          <div class="faq-q">How do I book an appointment?<div class="faq-icon">+</div></div>
+          <div class="faq-a">All bookings are strictly by appointment. Send a DM on Instagram (@lacedbymide_) or message via WhatsApp (+234 906 468 2202). A deposit is required to secure your slot.</div>
+        </div>
+        <div class="faq-item reveal" onclick="toggleFaq(this)">
+          <div class="faq-q">Do I need to bring my own hair?<div class="faq-icon">+</div></div>
+          <div class="faq-a">Yes, for wig construction and installation services, you will need to bring your bundles and lace. Mide will advise you on the right amount and type of hair needed when you book.</div>
+        </div>
+        <div class="faq-item reveal" onclick="toggleFaq(this)">
+          <div class="faq-q">How does the wig revamping drop-off work?<div class="faq-icon">+</div></div>
+          <div class="faq-a">For revamping, you drop off your wig and it will be ready within the agreed timeframe. Drop-off location will be confirmed when you book via DM or WhatsApp.</div>
+        </div>
+        <div class="faq-item reveal" onclick="toggleFaq(this)">
+          <div class="faq-q">Is a deposit required to book?<div class="faq-icon">+</div></div>
+          <div class="faq-a">Yes, a non-refundable deposit is required to secure your appointment slot. The deposit amount will be communicated when you reach out to book.</div>
+        </div>
+        <div class="faq-item reveal" onclick="toggleFaq(this)">
+          <div class="faq-q">How long does a full wig construction take?<div class="faq-icon">+</div></div>
+          <div class="faq-a">Construction timelines vary depending on the complexity of the unit. Typically 2–5 business days. Exact timelines will be discussed during your booking consultation.</div>
+        </div>
+        <div class="faq-item reveal" onclick="toggleFaq(this)">
+          <div class="faq-q">Do you offer bridal packages?<div class="faq-icon">+</div></div>
+          <div class="faq-a">Yes! Bridal and special event packages are available. Enquire via WhatsApp or DM for custom pricing based on your event requirements. Early booking is strongly advised.</div>
+        </div>
+      </div>
+    </div>
+    <div class="faq-img reveal-r">
+      <img src="https://i.pinimg.com/736x/4e/24/99/4e2499d8818538bc993777502a72f17b.jpg" alt="Laced by Mide">
+      <div class="faq-img-overlay"></div>
+      <div class="faq-img-badge">
+        <h4>Ready to Get Laced?</h4>
+        <p>Book your appointment today via WhatsApp or Instagram DM</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section id="booking" class="booking-section">
+  <div class="booking-inner">
+    <div class="booking-info reveal-l">
+      <div class="s-tag">Book Now</div>
+      <h3>Secure Your <em>Appointment</em></h3>
+      <div class="s-line"></div>
+      <p>Fill the form and your booking details go straight to Mide's WhatsApp. All appointments require a deposit to confirm.</p>
+      <div class="i-cards">
+        <div class="i-card">
+          <div class="i-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div><div class="i-label">Location</div><div class="i-val">Lagos, Nigeria<br>Exact address shared on booking</div></div>
+        </div>
+        <div class="i-card">
+          <div class="i-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.06 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+          <div><div class="i-label">WhatsApp</div><div class="i-val">+234 906 468 2202</div></div>
+        </div>
+        <div class="i-card">
+          <div class="i-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
+          <div><div class="i-label">Instagram</div><div class="i-val">@lacedbymide_</div></div>
+        </div>
+        <div class="i-card">
+          <div class="i-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+          <div><div class="i-label">Availability</div><div class="i-val">Strictly by appointment only<br>No walk-ins accepted</div></div>
+        </div>
+      </div>
+      <div class="deposit-note"><strong>Note:</strong> A non-refundable deposit is required to secure your appointment. Dates are only confirmed after deposit payment.</div>
+    </div>
+    <div class="booking-form-wrap reveal-r">
+      <div class="form-title">Request Appointment</div>
+      <div class="f-group">
+        <label class="f-label">Full Name</label>
+        <input type="text" id="f-name" class="f-input" placeholder="Your full name">
+      </div>
+      <div class="f-row">
+        <div class="f-group">
+          <label class="f-label">Phone Number</label>
+          <input type="tel" id="f-phone" class="f-input" placeholder="+234...">
+        </div>
+        <div class="f-group">
+          <label class="f-label">Preferred Date</label>
+          <input type="date" id="f-date" class="f-input">
+        </div>
+      </div>
+      <div class="f-group">
+        <label class="f-label">Service</label>
+        <select id="f-service" class="f-select">
+          <option value="">Select a service</option>
+          <option>Wig Construction — Machine Sewn</option>
+          <option>Wig Construction — Hand Sewn</option>
+          <option>Lace Installation — Frontal</option>
+          <option>Lace Installation — Closure</option>
+          <option>Lace Customization (Bleach & Pluck)</option>
+          <option>Wig Revamping / Drop-Off</option>
+          <option>Bridal & Special Event Styling</option>
+          <option>Full Lace Package</option>
+          <option>Other — I'll explain below</option>
+        </select>
+      </div>
+      <div class="f-group">
+        <label class="f-label">Details & Special Requests</label>
+        <textarea id="f-details" class="f-area" placeholder="Tell Mide about your hair type, desired style, and any special requests..."></textarea>
+      </div>
+      <button class="f-submit" onclick="sendBooking()">
+        <span>Send Booking via WhatsApp</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <div class="s-tag reveal" style="color:var(--pink-3)">Get in Touch</div>
+  <h2 class="s-title reveal" style="color:white">Connect With <em style="color:var(--pink-3)">Mide</em></h2>
+  <div class="s-line reveal"></div>
+  <p class="s-sub reveal" style="color:rgba(255,255,255,.4)">All bookings are via Instagram DM or WhatsApp. Reach out and Mide will respond promptly.</p>
+  <div class="contact-inner">
+    <div class="c-items reveal-l">
+      <div class="c-item">
+        <div class="c-ico"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div><div class="c-lbl">Location</div><div class="c-val">Lagos, Nigeria<br>Drop-off address shared on booking</div></div>
+      </div>
+      <div class="c-item">
+        <div class="c-ico"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.06 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+        <div><div class="c-lbl">WhatsApp</div><div class="c-val">+234 906 468 2202</div></div>
+      </div>
+      <div class="c-item">
+        <div class="c-ico"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
+        <div><div class="c-lbl">Instagram</div><div class="c-val">@lacedbymide_</div></div>
+      </div>
+      <div>
+        <div class="c-lbl" style="margin-bottom:10px">Follow Mide</div>
+        <div class="social-row">
+          <a href="https://www.instagram.com/lacedbymide_" class="s-lnk" target="_blank">Instagram</a>
+          <a href="https://wa.me/2349064682202" class="s-lnk" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+    <div class="reveal-r">
+      <div class="contact-cta">
+        <h3>Ready to get <em>laced?</em></h3>
+        <p>Send a message now — slots fill up fast and a deposit secures your date.</p>
+        <a href="https://wa.me/2349064682202?text=Hi%20Mide!%20I%27d%20like%20to%20book%20an%20appointment.%20Please%20let%20me%20know%20your%20availability." class="wa-cta" target="_blank">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Chat on WhatsApp
+        </a>
+        <a href="https://www.instagram.com/lacedbymide_" class="ig-cta" target="_blank">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          DM on Instagram
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-logo">
+    <span class="brand-logo brand-logo-footer" aria-label="Laced by Mide logo">
+      <img src="images/Logo.png" alt="Laced by Mide logo">
+    </span>
+  </div>
+  <div class="f-copy">© 2025 Laced by Mide · Lagos, Nigeria · Premium Lace Specialist</div>
+  <div class="f-handle">@lacedbymide_</div>
+</footer>
+
+<!-- WA FLOAT -->
+<a href="https://wa.me/2349064682202?text=Hi%20Mide!%20I%20found%20your%20website%20and%20I%27d%20like%20to%20book%20an%20appointment!" class="wa-float" target="_blank" title="Chat on WhatsApp">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+window.addEventListener('scroll',()=>{
+  const p=(window.scrollY/(document.documentElement.scrollHeight-window.innerHeight))*100;
+  document.getElementById('prog').style.width=p+'%';
+  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>60);
+},{passive:true});
+
+function toggleMenu(){
+  document.getElementById('mobileMenu').classList.toggle('open');
+  document.getElementById('ham').classList.toggle('open');
+}
+
+const obs=new IntersectionObserver((entries)=>{
+  entries.forEach((e,i)=>{
+    if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*80);obs.unobserve(e.target)}
+  });
+},{threshold:0.1});
+document.querySelectorAll('.reveal,.reveal-l,.reveal-r').forEach(el=>obs.observe(el));
+
+function toggleFaq(item){
+  const isOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
+
+function sendBooking(){
+  const name=document.getElementById('f-name').value.trim();
+  const phone=document.getElementById('f-phone').value.trim();
+  const date=document.getElementById('f-date').value;
+  const service=document.getElementById('f-service').value;
+  const details=document.getElementById('f-details').value.trim();
+  if(!name||!phone||!service){alert('Please fill in your name, phone number, and select a service.');return;}
+  const msg=`Hi Mide! I'd like to book an appointment.\n\n*Name:* ${name}\n*Phone:* ${phone}\n*Service:* ${service}\n*Preferred Date:* ${date||'Flexible'}\n*Details:* ${details||'No additional notes'}\n\nFound you through your website!`;
+  window.open(`https://wa.me/2349064682202?text=${encodeURIComponent(msg)}`,'_blank');
+}
+</script>
+</body>
+</html>
